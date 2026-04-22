@@ -11,16 +11,6 @@ class TodoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ── Stitch "Minimalist Task Manager" design tokens ──────────────────
-    // Primary:          Deep Indigo  #3F51B5
-    // Background:       Off-white    #FBF8FF
-    // Surface:          White        #FFFFFF
-    // On-surface:       Near-black   #1A1B22
-    // Error:            Red          #BA1A1A
-    // Font:             Inter (via Google Fonts)
-    // Corner radius:    8 dp
-    // ─────────────────────────────────────────────────────────────────────
-
     const Color primaryColor = Color(0xFF3F51B5);
     const Color primaryDark = Color(0xFF24389C);
     const Color backgroundColor = Color(0xFFFBF8FF);
@@ -100,9 +90,7 @@ class TodoApp extends StatelessWidget {
         cardTheme: CardThemeData(
           color: surfaceColor,
           elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           margin: EdgeInsets.zero,
         ),
         checkboxTheme: CheckboxThemeData(
@@ -112,9 +100,7 @@ class TodoApp extends StatelessWidget {
           }),
           checkColor: WidgetStateProperty.all(Colors.white),
           side: const BorderSide(color: primaryColor, width: 2),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(4),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: primaryColor,
@@ -132,10 +118,7 @@ class TodoApp extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             borderSide: const BorderSide(color: primaryColor, width: 2),
           ),
-          hintStyle: GoogleFonts.inter(
-            color: onSurfaceVariant,
-            fontSize: 16,
-          ),
+          hintStyle: GoogleFonts.inter(color: onSurfaceVariant, fontSize: 16),
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 16,
             vertical: 14,

@@ -5,14 +5,6 @@ import '../services/storage_service.dart';
 import '../widgets/task_tile.dart';
 import '../widgets/add_task_sheet.dart';
 
-/// Main screen matching the Stitch "Home Screen (Updated Layout)" reference.
-///
-/// Layout:
-///   - AppBar with greeting + date
-///   - Progress summary chip ("X of Y tasks done")
-///   - ListView of TaskTile widgets
-///   - Empty state when no tasks exist
-///   - FloatingActionButton to open AddTaskSheet
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -24,7 +16,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   List<TodoItem> _tasks = [];
   bool _isLoading = true;
 
-  // Animation controller for list item entrance
   late final AnimationController _fadeController;
 
   @override
@@ -85,10 +76,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            'Task deleted',
-            style: GoogleFonts.inter(fontSize: 14),
-          ),
+          content: Text('Task deleted', style: GoogleFonts.inter(fontSize: 14)),
           duration: const Duration(seconds: 2),
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -113,30 +101,45 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   int get _totalCount => _tasks.length;
 
   String get _progressLabel {
-    if (_totalCount == 0) return 'No tasks yet';
+    if (_totalCount == 0) return "";
     if (_doneCount == _totalCount) return 'All tasks complete 🎉';
     return '$_doneCount of $_totalCount done';
   }
 
-  double get _progressValue =>
-      _totalCount == 0 ? 0 : _doneCount / _totalCount;
+  double get _progressValue => _totalCount == 0 ? 0 : _doneCount / _totalCount;
 
   // ── Greeting helper ────────────────────────────────────────────────────
   String get _greeting {
     final hour = DateTime.now().hour;
-    if (hour < 12) return 'Good morning';
-    if (hour < 17) return 'Good afternoon';
-    return 'Good evening';
+    if (hour < 12) return 'Good morning, Habib';
+    if (hour < 17) return 'Good afternoon, Habib';
+    return 'Good evening, Habib';
   }
 
   String get _dateLabel {
     final now = DateTime.now();
     final weekday = [
-      'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
     ][now.weekday - 1];
     final month = [
-      'Jan','Feb','Mar','Apr','May','Jun',
-      'Jul','Aug','Sep','Oct','Nov','Dec'
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
     ][now.month - 1];
     return '$weekday, $month ${now.day}';
   }
@@ -176,23 +179,23 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               child: _isLoading
                   ? const Center(child: CircularProgressIndicator())
                   : _tasks.isEmpty
-                      ? _buildEmptyState()
-                      : FadeTransition(
-                          opacity: _fadeController,
-                          child: ListView.builder(
-                            padding: const EdgeInsets.only(bottom: 100),
-                            itemCount: _tasks.length,
-                            itemBuilder: (context, index) {
-                              final task = _tasks[index];
-                              return TaskTile(
-                                key: ValueKey(task.id),
-                                task: task,
-                                onToggle: () => _toggleTask(task.id),
-                                onDelete: () => _deleteTask(task.id),
-                              );
-                            },
-                          ),
-                        ),
+                  ? _buildEmptyState()
+                  : FadeTransition(
+                      opacity: _fadeController,
+                      child: ListView.builder(
+                        padding: const EdgeInsets.only(bottom: 100),
+                        itemCount: _tasks.length,
+                        itemBuilder: (context, index) {
+                          final task = _tasks[index];
+                          return TaskTile(
+                            key: ValueKey(task.id),
+                            task: task,
+                            onToggle: () => _toggleTask(task.id),
+                            onDelete: () => _deleteTask(task.id),
+                          );
+                        },
+                      ),
+                    ),
             ),
           ],
         ),
@@ -254,6 +257,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   }
 
   Widget _buildProgressCard(ColorScheme colors) {
+    if (_progressLabel == "") return SizedBox();
     return Container(
       margin: const EdgeInsets.fromLTRB(16, 16, 16, 0),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
@@ -357,19 +361,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 fontSize: 14,
                 color: const Color(0xFF757684),
                 height: 1.5,
-              ),
-            ),
-            const SizedBox(height: 28),
-            ElevatedButton.icon(
-              onPressed: _openAddSheet,
-              icon: const Icon(Icons.add_rounded, size: 18),
-              label: const Text('Add your first task'),
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 24,
-                  vertical: 12,
-                ),
-                minimumSize: Size.zero,
               ),
             ),
           ],

@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/todo_item.dart';
 
-/// A single task row styled after the Stitch "Minimalist Task Manager" card design.
-/// - White card, 8dp radius, ambient Indigo shadow
-/// - Round checkbox (Indigo border → solid Indigo fill when checked)
-/// - Strikethrough + dimmed text when done
-/// - Dismissible with red delete background
 class TaskTile extends StatelessWidget {
   final TodoItem task;
   final VoidCallback onToggle;
@@ -55,7 +50,7 @@ class TaskTile extends StatelessWidget {
               height: 24,
               decoration: BoxDecoration(
                 color: task.isDone ? colors.primary : Colors.transparent,
-                borderRadius: BorderRadius.circular(4),
+                borderRadius: BorderRadius.circular(14),
                 border: Border.all(
                   color: task.isDone
                       ? colors.primary
@@ -76,14 +71,15 @@ class TaskTile extends StatelessWidget {
               color: task.isDone
                   ? Theme.of(context).colorScheme.onSurfaceVariant
                   : const Color(0xFF1A1B22),
-              decoration:
-                  task.isDone ? TextDecoration.lineThrough : TextDecoration.none,
+              decoration: task.isDone
+                  ? TextDecoration.lineThrough
+                  : TextDecoration.none,
               decorationColor: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
             child: Text(task.title),
           ),
           trailing: IconButton(
-            icon: const Icon(Icons.drag_handle_rounded, size: 20),
+            icon: const Icon(Icons.drag_handle_rounded, size: 30),
             color: const Color(0xFF757684),
             onPressed: null, // visual affordance only
             tooltip: 'Swipe left to delete',

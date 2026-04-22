@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-/// Bottom sheet for adding a new task.
-/// Styled after the Stitch "Task Entry (Bottom Sheet)" screen:
-/// - Minimalist text field with Indigo bottom-accent on focus
-/// - Solid Indigo "Add Task" primary button
-/// - Text-only "Cancel" button
 class AddTaskSheet extends StatefulWidget {
   final void Function(String title) onAdd;
 
@@ -27,7 +22,9 @@ class _AddTaskSheetState extends State<AddTaskSheet> {
       setState(() => _hasText = _controller.text.trim().isNotEmpty);
     });
     // Auto-focus the field when the sheet opens
-    WidgetsBinding.instance.addPostFrameCallback((_) => _focusNode.requestFocus());
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _focusNode.requestFocus(),
+    );
   }
 
   @override
