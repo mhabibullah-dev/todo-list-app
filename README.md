@@ -22,50 +22,26 @@ A clean, minimalist **Flutter todo list app** built with Material Design 3, styl
 ### Home Screen — Empty State
 > *No tasks added yet. The empty state with icon and greeting is shown.*
 
-<!-- Add screenshot here -->
-<!-- ![Empty State](screenshots/empty_state.png) -->
+<img width="394" height="775" alt="Screenshot 2026-04-22 at 5 23 58 PM" src="https://github.com/user-attachments/assets/775837d8-d5ca-4546-b8eb-d60ab836f018" />
 
 ---
 
 ### Home Screen — With Tasks
 > *Tasks displayed in a `ListView` with the progress card and percentage indicator.*
 
-<!-- Add screenshot here -->
-<!-- ![Home Screen with Tasks](screenshots/home_screen_tasks.png) -->
-
----
-
-### Home Screen — Tasks In Progress
-> *Some tasks checked off. Progress bar and "X of Y done" label update live.*
-
-<!-- Add screenshot here -->
-<!-- ![Tasks In Progress](screenshots/tasks_in_progress.png) -->
+<img width="375" height="777" alt="Screenshot 2026-04-22 at 7 04 42 PM" src="https://github.com/user-attachments/assets/081934bf-6547-41eb-97a7-30a1114ab7b0" />
 
 ---
 
 ### Add Task — Bottom Sheet
 > *The modal bottom sheet with auto-focused text input and "Add Task" button.*
 
-<!-- Add screenshot here -->
-<!-- ![Add Task Sheet](screenshots/add_task_sheet.png) -->
+<img width="373" height="784" alt="Screenshot 2026-04-22 at 7 02 14 PM" src="https://github.com/user-attachments/assets/062d3989-0c86-4a0a-8613-8638e49c1815" />
+
 
 ---
 
-### Task Completed — Strikethrough Animation
-> *A task after being toggled to done: checkbox fills with Indigo, text gets strikethrough.*
 
-<!-- Add screenshot here -->
-<!-- ![Task Completed](screenshots/task_completed.png) -->
-
----
-
-### Delete Task — Swipe Gesture
-> *Swiping a task left reveals the red delete background with the "DELETE" label.*
-
-<!-- Add screenshot here -->
-<!-- ![Swipe to Delete](screenshots/swipe_to_delete.png) -->
-
----
 
 ## 🏗️ Project Structure
 
@@ -120,18 +96,6 @@ flutter pub get
 
 # Launch on connected device
 flutter run
-```
-
-### Run tests
-
-```bash
-flutter test
-```
-
-### Analyze code
-
-```bash
-flutter analyze
 ```
 
 ---
