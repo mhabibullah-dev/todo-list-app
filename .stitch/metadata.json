@@ -1,0 +1,42 @@
+{
+  "name": "projects/15811622776348637248",
+  "projectId": "15811622776348637248",
+  "title": "Minimalist Task Manager",
+  "visibility": "PRIVATE",
+  "origin": "STITCH",
+  "deviceType": "MOBILE",
+  "designTheme": {
+    "colorMode": "LIGHT",
+    "font": "INTER",
+    "roundness": "ROUND_EIGHT",
+    "customColor": "#3F51B5",
+    "namedColors": {
+      "primary": "#24389c",
+      "primary_container": "#3f51b5",
+      "on_primary": "#ffffff",
+      "background": "#fbf8ff",
+      "surface": "#fbf8ff",
+      "on_surface": "#1a1b22",
+      "on_surface_variant": "#454652",
+      "outline": "#757684",
+      "outline_variant": "#c5c5d4",
+      "error": "#ba1a1a"
+    }
+  },
+  "screens": {
+    "home_screen": {
+      "id": "9b6f68c1491e4596bb5b8ebb24b7f9ff",
+      "sourceScreen": "projects/15811622776348637248/screens/9b6f68c1491e4596bb5b8ebb24b7f9ff",
+      "title": "Home Screen (Updated Layout)",
+      "width": 780,
+      "height": 1768
+    },
+    "task_entry": {
+      "id": "d1c6bffa8c3340d5ad90690aea439c87",
+      "sourceScreen": "projects/15811622776348637248/screens/d1c6bffa8c3340d5ad90690aea439c87",
+      "title": "Task Entry (Bottom Sheet)",
+      "width": 780,
+      "height": 1768
+    }
+  }
+}
